@@ -1,7 +1,7 @@
 package com.wxhao.boot.base.properties;
 
 
-import com.wxhao.boot.base.enums.KeyPrefer;
+import com.wxhao.boot.api.enums.KeyPrefer;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
