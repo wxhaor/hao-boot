@@ -1,0 +1,20 @@
+# 服务端口
+server:
+  port: 8761
+
+eureka:
+  server:
+    # 健康检查
+    enable-self-preservation: false
+  client:
+    # 是否显示注册中心
+    register-with-eureka: false
+#    service-url:
+#      # 注册中心 (集群:http://localhost:8762/eureka/,http://localhost:8763/eureka/)
+#      defaultZone: http://localhost:8762/eureka/
+
+spring:
+  application:
+    name: hao-eureka
+
+
