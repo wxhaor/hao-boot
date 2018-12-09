@@ -14,16 +14,20 @@ import org.springframework.context.annotation.PropertySource;
 
 @ComponentScan(basePackages = "com.wxhao.study.ioc.di.config")
 //添加自定义配置文件 , ignoreResourceNotFound 是否忽略配置文件找不到 ,默认为false (找不到就会报错)
-@PropertySource(value = {"classpath:custom"}, ignoreResourceNotFound = true)
+@PropertySource(value = {"classpath:custom.properties"}, ignoreResourceNotFound = true)
 @Slf4j
 public class TestConfig extends TestStudyApplication {
 
     @Autowired
-    private CustomConfig customConfig;
+    private CustomConfigProperties customConfigProperties;
+
+    @Autowired
+    private String configName;
 
     @Test
     public void config() {
-        log.info("-------------------->{}", customConfig.getName());
+        log.info("customConfigProperties.name-------------------->{}", customConfigProperties.getName());
+        log.info("configName-------------------->{}", configName);
     }
 
 

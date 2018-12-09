@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomConfigController {
 
     @Autowired
-    private CustomConfig customConfig;
+    private CustomConfigProperties customConfigProperties;
 
     @GetMapping("/show")
-    public CustomConfig show(){
-        return customConfig;
+    public CustomConfigProperties show(){
+        return customConfigProperties;
     }
 
 }

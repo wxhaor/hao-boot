@@ -1,6 +1,7 @@
 package com.wxhao.boot.mybatis.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import tk.mybatis.mapper.common.BaseMapper;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
@@ -12,12 +13,19 @@ import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 @Configuration
 public class MapperConfig {
 
+
+    @Bean("test")
+    public String test() {
+        return "test";
+    }
+
+
     @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer(){
+    public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setMarkerInterface(BaseMapper.class);
         mapperScannerConfigurer.setBasePackage("com.wxhao.hao.manage.server.mapper");
-        return  mapperScannerConfigurer;
+        return mapperScannerConfigurer;
     }
 
 }

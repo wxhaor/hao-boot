@@ -1,25 +1,21 @@
 package com.wxhao.study.ioc.di.config;
 
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
-
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author wxhao
- * @date 2018/12/6
+ * @date 2018/12/7
  */
-@Component
-//@ConfigurationProperties("config")
-@Data
-
+@Configuration
 public class CustomConfig {
 
-@Value("${config.name}")
-    private String name;
-
-    private String value;
+    @Bean("configName")
+    // 配置条件满足 ConfigNamePropertiesConditional 的验证
+    @Conditional(ConfigNamePropertiesConditional.class)
+    public String getCustomConfigProperties(CustomConfigProperties customConfigProperties){
+        return customConfigProperties.getName();
+    }
 
 }
